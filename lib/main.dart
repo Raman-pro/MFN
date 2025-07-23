@@ -1,8 +1,9 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-
 import 'package:flutter_glyph_kit/flutter_glyph_kit.dart';
+import 'Models/GlyphSlider.dart';
+import 'Widgets/FingerButton.dart';
+import 'Widgets/RotatedText.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,14 +18,12 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int _current = 2;
-
   // var leds
   final glyphSlider = GlyphSlider(
     leds: [
       Phone2Led.c4,
       Phone2Led.c5,
       Phone2Led.c6,
-
       Phone2Led.d1_8,
       Phone2Led.d1_7,
       Phone2Led.d1_6,
@@ -42,12 +41,15 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Color(0xFF58A0C8),
+
         appBar: AppBar(
           title: const RotatedText(
             text: 'MFN-show your anger',
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
+
           backgroundColor: Color(0xFF113F67),
+
         ),
         body: Center(
           child: Column(
@@ -57,8 +59,7 @@ class _MyAppState extends State<MyApp> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(padding: EdgeInsetsGeometry.all(25)),
+                  FingerButton(
                     onPressed: () {
                       const duration = Duration(milliseconds: 10); // frame rate
                       const double target = 11.0;
@@ -81,11 +82,9 @@ class _MyAppState extends State<MyApp> {
                         });
                       }
                     },
-                    child: RotatedText(text:'Show Finger'),
                   ),
 
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(padding: EdgeInsetsGeometry.all(25)),
+                  FingerButton(
                     onPressed: () {
                       Timer.periodic(Duration(milliseconds: 30), (timer) {
                         if (_current <= 2) {
@@ -105,7 +104,6 @@ class _MyAppState extends State<MyApp> {
                         ); // Replace this with setState or equivalent
                       });
                     },
-                    child: RotatedText(text: 'Hide Finger'),
                   ),
                 ],
               ),
@@ -113,8 +111,9 @@ class _MyAppState extends State<MyApp> {
               SizedBox(height: 100),
 
               RotatedText(text: 'Use the slider to show/hide finger🖕',),
+
               SizedBox(height: 30),
-              // Text(data)data
+
               Slider(
                 min: 0,
                 max: (glyphSlider.leds.length - 1).toDouble(),
@@ -135,52 +134,6 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-class RotatedText extends StatelessWidget {
-  const RotatedText({
-    required this.text,
-    this.style=const TextStyle(color: Colors.black, fontSize: 24),
-    super.key,
-  });
-  final String text;
-  final TextStyle style;
 
-  @override
-  Widget build(BuildContext context) {
-    return RotatedBox(
-      quarterTurns: 2,
-      child: Text(
-        text,
-        style: TextStyle(color: Colors.black, fontSize: 24),
-      ),
-    );
-  }
-}
 
-class GlyphSlider {
-  GlyphSlider({required this.leds});
 
-  final Phone2Glyph glyph = Phone2Glyph();
-  final List<Phone2Led> leds;
-
-  Future<void> slideTo(int step) async {
-    final toLight = leds.sublist(0, step + 1);
-    await glyph.toggle(channels: toLight);
-  }
-
-  Future<void> animateLoop({
-    required Duration delay,
-    bool reverse = false,
-  }) async {
-    int idx = 0, dir = 1;
-    while (true) {
-      await slideTo(idx);
-      await Future.delayed(delay);
-      idx += dir;
-      if (idx == leds.length || idx < 0) {
-        if (!reverse) break;
-        dir = -dir;
-        idx += dir * 2;
-      }
-    }
-  }
-}

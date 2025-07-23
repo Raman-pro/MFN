@@ -1,16 +1,20 @@
-# nothing
+# MFN-Middle Finger Nothing
+##An apk to help you show your anger with your glyph interface
 
-A new Flutter project.
 
-## Getting Started
+How to install?
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+
+
+
+
+
+
+
+A quote to forgive me for the apk.
+>Live the life with fun not to take everything so seriously. ~ Raman
