@@ -2,26 +2,22 @@
 An apk to help you show your anger with glyph interface of Nothing Phone 2
 
 ##Demo:
-![Image of the apk](/assets/MFN_screenshot.jpeg )
 <table>
 <tr>
 <td>
-<img src="assets/video_thumbnail.png" style="width:50%;">
+<img src="assets/MFN_screenshot.jpeg" style="width:60%;">
 </td>
 <td>
-<img src="assets/video_thumbnail.png" style="width:50%;">
+<img src="assets/MFN_screenshot_rotated.jpeg" style="width:60%;">
 </td>
-</tr>
-<tr>
-<td><div>
-      <a href="https://youtube.com/shorts/1fJ7_u69O6A">
-         <img src="assets/video_thumbnail.png" style="width:50%;">
-      </a>
-</div></td>
 </tr>
 </table>
 
-![Image of the apk](/assets/MFN_screenshot_rotated.jpeg )
+<div>
+      <a href="https://youtube.com/shorts/1fJ7_u69O6A">
+         <img src="assets/video_thumbnail.png" style="width:50%;">
+      </a>
+</div>
 
 
 
