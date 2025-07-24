@@ -60,6 +60,7 @@ class _MyAppState extends State<MyApp> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   FingerButton(
+                    text: 'Show Finger',
                     onPressed: () {
                       const duration = Duration(milliseconds: 10); // frame rate
                       const double target = 11.0;
@@ -85,6 +86,7 @@ class _MyAppState extends State<MyApp> {
                   ),
 
                   FingerButton(
+                    text: 'Close Finger',
                     onPressed: () {
                       Timer.periodic(Duration(milliseconds: 30), (timer) {
                         if (_current <= 2) {
